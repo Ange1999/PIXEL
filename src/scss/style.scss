@@ -1,0 +1,18 @@
+#right-sticky-section{
+    background-color: #0a0a0fec;
+}
+
+#header-wrap{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1d20ec;
+    h1{
+    margin-top: 0;
+    margin-left: 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: orange;
+    font-weight: 400;
+    }
+}

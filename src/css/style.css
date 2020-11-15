@@ -1,0 +1,131 @@
+html{ 
+    overflow:hidden;
+}
+#body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+main{
+    display: flex;
+}
+#header-wrap{
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1d20ec;
+}
+.instruments{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+   /* border: 3px solid rgb(56, 52, 52);*/
+    margin-right: 5px;
+    margin-top: 10px;
+   background-color: rgb(141, 136, 125);
+}
+
+#toolbar{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+#color-panel{
+    display: flex;
+    margin-top: 10px;
+    
+    flex-direction: column;
+}
+input[type="color" i]{
+    width: 35px;
+    cursor: pointer;
+}
+
+.selectedButton{
+    outline: 1px solid orange;
+}
+#left-sticky-section{
+    height: 95vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: row;
+    background-color: #0a0a0fec;
+}
+#drawing-canvas-container{
+    height: 95vh;
+    width: 70vw;
+    background-color: rgb(92, 79, 95);
+    display: flex;
+    flex-direction: column;
+}
+#parent-canvas{
+    width: 70vw;
+    height: 95vh;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    }
+#right-sticky-section{
+    height: 95vh;
+    width: 15vw;
+   /* background-color: rgb(89, 89, 90);*/
+}
+#drawing-canvas{
+    background-image: url(../img/grid.png);
+    background-repeat: round;
+    cursor: pointer;
+}
+#cabbage-skin-canvas{
+    position: absolute;
+}
+#dot-overlay-canvas{
+    position: absolute;
+    z-index: 1000;
+}
+
+#thickness-slider{
+width: 40px;
+cursor: pointer;
+}
+#commonButtonContainer{
+    display: flex;
+    margin: 4px;
+    flex-direction: column;
+}
+#butt-save-img{
+    outline: none;
+    background: #343434;
+    height: 30px;
+    opacity: 0.7;
+    color: white;
+}
+#butt-delete-img{
+    outline: none;
+    height: 30px;
+    background: #343434;
+    opacity: 0.7;
+    color: white;   
+}
+#add-img{
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+#add-img + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background: #343434;
+    opacity: 0.7;
+    display: inline-block;
+    cursor: pointer; 
+}
+#add-img:focus + label,
+#add-img + label:hover {
+    background: #343434;
+}
