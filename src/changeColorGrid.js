@@ -10,7 +10,7 @@ export default function () {
     if (oEvent.target.id === "choiceBackground") {
       ("");
     } else {
-      currentCanvasState.setCurrentBackgroundCanvas(`../dist/img/${oEvent.target.id}.png`);
+      currentCanvasState.setCurrentBackgroundCanvas(`./dist/img/${oEvent.target.id}.png`);
       const url =  currentCanvasState.getCurrentBackgroundCanvas();
       const strUrl = `url(${url})`;
       oCanvas.style.backgroundImage =  strUrl;

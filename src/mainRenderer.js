@@ -11,20 +11,20 @@ function renderer(toolState,framesData) {
   <div id='wrapper-toolbar'>
   <div id='toolbar'>
   <div id='mainInstruments'>
-    <div><img title = "Pen tool" class = 'instruments'  id='pen' src='../dist/img/pen.png'></div>
-    <div><img title = "Eraser tool" class = 'instruments' id='eraser' src='../dist/img/eraser.png'></div>
-    <div><img title = "Stroke tool" class = 'instruments' id='line'src='../dist/img/line.png'></div>
-    <div><img title = "Vertical Mirror pen" class = 'instruments' id='mirror-pen' src='../dist/img/mirror-pen.png'></div>
-    <div><img title = "Paint All pixels of the same color" class = 'instruments' id='canvasFill' src='../dist/img/canvasFill.png'></div>
-    <div><img title = "Color picker" class = 'instruments' id='pipette' src='../dist/img/pipette.png'></div>
+    <div><img title = "Pen tool" class = 'instruments'  id='pen' src='./dist/img/pen.png'></div>
+    <div><img title = "Eraser tool" class = 'instruments' id='eraser' src='./dist/img/eraser.png'></div>
+    <div><img title = "Stroke tool" class = 'instruments' id='line'src='./dist/img/line.png'></div>
+    <div><img title = "Vertical Mirror pen" class = 'instruments' id='mirror-pen' src='./dist/img/mirror-pen.png'></div>
+    <div><img title = "Paint All pixels of the same color" class = 'instruments' id='canvasFill' src='./dist/img/canvasFill.png'></div>
+    <div><img title = "Color picker" class = 'instruments' id='pipette' src='./dist/img/pipette.png'></div>
   </div>
   <div id='figures'>
-    <div><img title = "Rectangle tool" class = 'instruments' id='rectangle' src='../dist/img/rectangle.png'></div>
-    <div><img title = "Triangle tool" class = 'instruments'  id='triangle' src='../dist/img/triangle.png'></div>
-    <div><img title = "Circle tool" class = 'instruments' id='circle' src='../dist/img/circle.png'></div>
-    <div><img title = "Ellipse tool" class = 'instruments' id='ellipse' src='../dist/img/ellipse.png'></div>
-    <div><img class = 'instruments' id='rotate' src='../dist/img/arrow.png'></div>
-    <div><img class = 'instruments' id='flip' src='../dist/img/flip.png'></div>
+    <div><img title = "Rectangle tool" class = 'instruments' id='rectangle' src='./dist/img/rectangle.png'></div>
+    <div><img title = "Triangle tool" class = 'instruments'  id='triangle' src='./dist/img/triangle.png'></div>
+    <div><img title = "Circle tool" class = 'instruments' id='circle' src='./dist/img/circle.png'></div>
+    <div><img title = "Ellipse tool" class = 'instruments' id='ellipse' src='./dist/img/ellipse.png'></div>
+    <div><img class = 'instruments' id='rotate' src='./dist/img/arrow.png'></div>
+    <div><img class = 'instruments' id='flip' src='./dist/img/flip.png'></div>
   </div>
 </div>
 <div id = "slider-container">
@@ -72,10 +72,10 @@ function renderer(toolState,framesData) {
 </div>-->
 <div id="background">Background:</div>
 <div id="choiceBackground">
-<img сlass="typeBackground" src="../dist/img/grid.png" id="grid">
-<img сlass="typeBackground" src="../dist/img/grid2.png" id="grid2">
-<img сlass="typeBackground" src="../dist/img/grid3.png" id="grid3">
-<img сlass="typeBackground" src="../dist/img/grid4.png" id="grid4">
+<img сlass="typeBackground" src="./dist/img/grid.png" id="grid">
+<img сlass="typeBackground" src="./dist/img/grid2.png" id="grid2">
+<img сlass="typeBackground" src="./dist/img/grid3.png" id="grid3">
+<img сlass="typeBackground" src="./dist/img/grid4.png" id="grid4">
 </div>
 </div>
 

@@ -20,7 +20,7 @@ export default function () {
   
     } else {
       currentCanvasState.setCurrentBackgroundCanvas(
-        `../dist/img/${oEvent.target.id}.png`
+        `./dist/img/${oEvent.target.id}.png`
       );
       const url = currentCanvasState.getCurrentBackgroundCanvas();
       redrowListFrames(updateCurrentFrames, listFrames);
@@ -174,14 +174,14 @@ function redrowListFrames(updateCurrentFrames, listFrames) {
     let placeForDeleteButton =
       updateCurrentFrames.length === 1
         ? ""
-        : `<button  class="deleteFrameButtons"><img data-id = ${index} class = "delete" src = "../dist/img/delete.png"></button>`;
+        : `<button  class="deleteFrameButtons"><img data-id = ${index} class = "delete" src = "./dist/img/delete.png"></button>`;
     listFrames.insertAdjacentHTML(
       "beforeend",
       `
             <li class="wrapper-frame" style = "background-image: url(${url})">
               <div id="edit-frames-buttons">
                 <button class="id-frame">${index + 1}</button>
-                <button class="duplicateFrameButtons"><img data-id=${index} class = "duplicate" src = "../dist/img/duplicate.png"></button>
+                <button class="duplicateFrameButtons"><img data-id=${index} class = "duplicate" src = "/dist/img/duplicate.png"></button>
                  ${placeForDeleteButton}
                 </div>
               <img src =${frame} data-id=${index} class = "img-frame glyphicon glyphicon-move"> 

@@ -2,7 +2,7 @@
 const canvasData = {
   picture: ``,
   selectedFrameId: "",
-  selectedColorGrid: `../dist/img/grid.png`,
+  selectedColorGrid: `./dist/img/grid.png`,
 };
 
 export default function () {
