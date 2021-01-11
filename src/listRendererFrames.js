@@ -181,7 +181,7 @@ function redrowListFrames(updateCurrentFrames, listFrames) {
             <li class="wrapper-frame" style = "background-image: url(${url})">
               <div id="edit-frames-buttons">
                 <button class="id-frame">${index + 1}</button>
-                <button class="duplicateFrameButtons"><img data-id=${index} class = "duplicate" src = "/dist/img/duplicate.png"></button>
+                <button class="duplicateFrameButtons"><img data-id=${index} class = "duplicate" src = "./dist/img/duplicate.png"></button>
                  ${placeForDeleteButton}
                 </div>
               <img src =${frame} data-id=${index} class = "img-frame glyphicon glyphicon-move"> 
