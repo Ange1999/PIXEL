@@ -1,6 +1,10 @@
-import getSelectedToolFunction from "./toolbarFunctionality";
+import getSelectedToolFunction from './toolbarFunctionality'
+import sizeCanvas from './canvasSize'
+
+
 export default function (toolState) {
-  // return - назад действие !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // return - назад действие !!!!!
+  const blokContainingCanvases = document.getElementById("drawing-canvas-container")
   const parentCanvas = document.getElementById("parent-canvas");
   const oCanvas = document.getElementById("drawing-canvas");
   const figureDrowCanvas = document.getElementById("cabbage-skin-canvas");
@@ -15,25 +19,17 @@ export default function (toolState) {
   let clickCoordinateX = 0;
   let moveCoordinateY = 0;
   let moveCoordinateX = 0;
+  let prevCoordinateY = 0;
+  let prevCoordinateX = 0;
 
-
-  function sizeCanvas() {
-    oCanvas.height = parentCanvas.offsetHeight;
-    oCanvas.width = parentCanvas.offsetWidth;
-    figureDrowCanvas.height = parentCanvas.offsetHeight;
-    figureDrowCanvas.width = parentCanvas.offsetWidth;
-    dotDrowCanvas.height = parentCanvas.offsetHeight;
-    dotDrowCanvas.width = parentCanvas.offsetWidth;
-  }
-  sizeCanvas();
-  
-  window.addEventListener("resize", sizeCanvas);
+ sizeCanvas(parentCanvas.offsetHeight,parentCanvas.offsetWidth);
+ 
+ // window.addEventListener("resize", sizeCanvas(parentCanvas.offsetHeight,parentCanvas.offsetWidth));
 
   function onMoveFigureDrowCanvas(oEvent,color){
     const selectedTool = toolState.getProp("selectedTool");
     const selectedToolFunction = getSelectedToolFunction(selectedTool);
     if (downLeftFlag || downRightFlag) {
-      console.log(color)
       selectedToolFunction(
         oCanvasContext,
         figureDrowCanvas,
@@ -43,7 +39,9 @@ export default function (toolState) {
         moveCoordinateX,
         moveCoordinateY,
         toolState.getProp("selectedThickness"),
-        color
+        color, 
+        prevCoordinateX,
+        prevCoordinateY
       );
   }
   }
@@ -62,30 +60,31 @@ export default function (toolState) {
       moveCoordinateX,
       moveCoordinateY,
       toolState.getProp("selectedThickness"),
-      color
+      color,
+      prevCoordinateX,
+      prevCoordinateY
     );
   }
 
-  dotDrowCanvas.addEventListener("contextmenu",(oEvent)=>{
+  blokContainingCanvases.addEventListener("contextmenu",(oEvent)=>{
     oEvent.preventDefault();
   })
   
   dotDrowCanvas.addEventListener("mousedown", (oEvent) => {
-    if(oEvent.buttons == 1){
+    if(oEvent.buttons === 1){
       downLeftFlag = true;
       const leftColor = toolState.getProp("selectedLeftColor")
       onClickFigureDrowCanvas(oEvent,leftColor);
-      console.log(leftColor)
-    } else if(oEvent.buttons == 2){
+    } else if(oEvent.buttons === 2){
       downRightFlag = true;
       const rightColor = toolState.getProp("selectedRightColor")
       onClickFigureDrowCanvas(oEvent,rightColor);
-      console.log(rightColor)
     }
   });
 
   dotDrowCanvas.addEventListener("mouseup", (oEvent) => {
     if(oEvent.button === 0){
+
       downLeftFlag = false;
     } else if (oEvent.button === 2){
       downRightFlag = false;
@@ -104,8 +103,9 @@ export default function (toolState) {
     else if (downLeftFlag){
       const leftColor = toolState.getProp("selectedLeftColor")
       onMoveFigureDrowCanvas(oEvent,leftColor);
-
     }
+    prevCoordinateY = moveCoordinateY;
+    prevCoordinateX = moveCoordinateX;
    
     const sizeDot = toolState.getProp("selectedThickness");
     getSelectedToolFunction("followSquare")(dotDrowCanvas, dotDrowCanvasContext, moveCoordinateX, moveCoordinateY, sizeDot);
@@ -114,5 +114,9 @@ export default function (toolState) {
 
   dotDrowCanvas.addEventListener("mouseout", (oEvent) => {
     dotDrowCanvasContext.clearRect( 0, 0, dotDrowCanvas.width, dotDrowCanvas.height);
+      downLeftFlag = false;
+      downRightFlag = false;
+    
+ 
   });
 }

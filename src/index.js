@@ -1,22 +1,36 @@
 import './css/style.css';
-import './scss/style.scss';
 import mainRenderer from './mainRenderer';
 import toolbarSelection from './toolbarSelection';
 import canvasContainer from './canvasContainer'
 import toolChoiseState from './toolChoiseState';
 import selectLineThickness from './selectLineThickness'
 import colorPalette from './colorPalette'
-import colorRightPalette from './colorRightPalette';
 import settingsTool from './settingsTool';
+import rendererFrames from './listRendererFrames';
+import framesDataState from './mainDataModel';
+import selectValueFps from './selectFps';
+import animation from './animateFrames'
+import canvasState from './canvasState' //данные канваса
+import changeCanvasSize from './changeCanvasSize'
+import exportFrames from './exportFrames'
 
+const toolState = toolChoiseState();
+const canvasDataState = canvasState();
 
+mainRenderer(toolState,framesDataState); 
+selectValueFps(framesDataState)
 
-
-const toolState = toolChoiseState()
-mainRenderer(toolState);
+selectValueFps(framesDataState)
 toolbarSelection(toolState);
 selectLineThickness(toolState);
 canvasContainer(toolState);
 colorPalette(toolState);
-colorRightPalette(toolState);
-settingsTool()
+settingsTool(toolState);
+rendererFrames();
+animation();
+
+//changeCanvasSize();
+//exportFrames();
+
+
+

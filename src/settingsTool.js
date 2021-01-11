@@ -1,9 +1,39 @@
-export default function(){     
+import dataFrames from './mainDataModel'
+import canvasState from './canvasState'
+import changeGridBackground from './changeBackground'
+const currentCanvasState = canvasState();
+
+export default function(toolState){     
     // можно добавить настройки и там выбор темы(светлая / темная)
     //  кнопка удалить все сюда подходит?
-    const inputAdd = document.getElementById("add-img");
+const inputAdd = document.getElementById("add-img");
 const oCanvas = document.getElementById("drawing-canvas");
 const oCanvasContext = oCanvas.getContext("2d");
+
+const arrayImg = JSON.parse(localStorage.getItem("imgCanvas")) || [];
+  dataFrames.pushFrames(arrayImg);
+
+changeGridBackground(localStorage.getItem("theme") || currentCanvasState.getCurrentBackgroundCanvas());
+
+
+window.onbeforeunload = function(){
+  localStorage.setItem("imgCanvas", JSON.stringify(dataFrames.getFrames()));
+  localStorage.setItem("theme", currentCanvasState.getCurrentBackgroundCanvas());
+}
+
+window.onload = function(){ // при загрузке выделен первый фрейм и отображен на канвасе
+  const firstFrame = dataFrames.getFrames()[0];
+  const firstSelectedTool = document.getElementById(`${toolState.getProp("selectedTool")}`)
+  const arrImages = document.querySelectorAll(".img-frame")
+  currentCanvasState.setCurrentSrcCanvas(firstFrame)
+  currentCanvasState.setIdCurrentFrame(0)
+  arrImages[0].classList.add("selectedButton");
+  const firstSelectedImg = new Image();
+  firstSelectedImg.src = firstFrame;
+  oCanvasContext.drawImage(firstSelectedImg, 0, 0, oCanvas.width, oCanvas.height);
+  firstSelectedTool.classList.add("selectedButton");  
+}
+
 
 inputAdd.addEventListener("change", () => {  //Загрузка картинки
     const reader = new FileReader();
@@ -38,3 +68,4 @@ inputAdd.addEventListener("change", () => {  //Загрузка картинки
     oCanvasContext.clearRect(0, 0, oCanvas.width, oCanvas.height);
   });
 }
+
